@@ -93,6 +93,13 @@ def capture_face(prompt: str = "Press 'c' to capture your face or wait for autom
     return captured_face
 
 wavs = []
+@app.get("/test-point")
+def test():
+    return JSONResponse(
+        status_code=200,
+        content={"message":"Hello this end point is working"}
+    )
+
 @app.post("/upload-voice")
 def upload_voice(audio_file: UploadFile = File(...)):
     try:
